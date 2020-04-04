@@ -1,0 +1,97 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: rgb(255, 60, 93);
+}
+html {
+  font-size: 62.5%;
+}
+body,
+input,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.main {
+  width: 60rem;
+  max-width: 95%;
+  margin: 4rem auto 0 auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 4rem;
+  color: rgb(39, 39, 39);
+  margin-bottom: 4rem;
+}
+
+.form {
+  display: flex;
+  margin-bottom: 4rem;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.form__input {
+  flex: 1;
+  outline: none;
+  font-size: 1.8rem;
+  padding: 1rem 2rem;
+  border: 0.5px solid rgb(179, 179, 179);
+}
+.form__btn {
+  background-color: var(--primary);
+  color: white;
+  font-size: 1.8rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+
+.todo {
+  list-style-type: none;
+}
+.todo__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2rem;
+}
+.todo__circle {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.todo__task {
+  font-size: 1.7rem;
+  margin-left: 2rem;
+  flex: 1;
+}
+.todo__delete {
+  font-size: 2rem;
+  cursor: pointer;
+  color: red;
+}
+.todo__completed {
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.no-todo {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.9;
+}

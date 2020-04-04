@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App | Created with node, express and mongodb</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Font Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/cdda6de23e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="main">
+      <h1 class="heading">Todo List</h1>
+
+      <form action="/add-item" method="POST" class="form">
+        <input
+          type="text"
+          name="task"
+          class="form__input"
+          placeholder="Enter your task..."
+        />
+        <button class="form__btn">Add</button>
+      </form>
+
+      <% if(todos.length === 0) { %>
+      <h4 class="no-todo">You don't have any task to do.</h4>
+      <% } else { %>
+      <ul class="todo">
+        <% for(let todo of todos) { %>
+        <li class="todo__item">
+          <% if(todo.completed) { %>
+          <i class="todo__completed fas fa-check-circle"></i>
+          <% } else { %>
+          <form action="/task-completed/<%= todo._id %>" method="POST">
+            <button>
+              <span class="todo__circle"></span>
+            </button>
+          </form>
+          <% } %>
+
+          <p class="todo__task">
+            <%= todo.task %>
+          </p>
+
+          <form action="/delete-task" method="POST">
+            <input type="hidden" name="id" value="<%= todo._id %>" />
+            <button>
+              <i class="todo__delete fas fa-trash-alt"></i>
+            </button>
+          </form>
+        </li>
+        <% } %>
+      </ul>
+      <% } %>
+    </main>
+  </body>
+</html>
