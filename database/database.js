@@ -10,7 +10,7 @@ exports.mongoConnect = (cb) => {
       cb(client);
       db = client.db();
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err, "Error"));
 };
 
 exports.getDb = () => db;
